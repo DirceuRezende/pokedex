@@ -18,6 +18,8 @@
         "react"
     ],
     "rules": {
-      "react/jsx-filename-extension": 0
+      "react/jsx-filename-extension": "off",
+      "import/no-unresolved": "off",
+      "import/prefer-default-export": "off"
     }
 }
