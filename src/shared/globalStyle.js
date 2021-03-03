@@ -4,10 +4,11 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #efefef;
     display: flex;
+    height: 100vh;
   }
 
   ol, ul {
-  list-style: none;
+    list-style: none;
   }
 
   *,

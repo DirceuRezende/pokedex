@@ -1,4 +1,6 @@
+import React from 'react';
 import styled from 'styled-components';
+import { ReactComponent as Search } from 'assets/search-black-18dp.svg';
 
 export const Header = styled.header`
   align-items: center;
@@ -11,6 +13,7 @@ export const Header = styled.header`
 
 export const Form = styled.form`
   display: flex;
+  align-items: stretch;
 `;
 
 export const LogoPokemon = styled.h1`
@@ -28,17 +31,26 @@ export const LogoPokemon = styled.h1`
 export const SearchInput = styled.input.attrs({
   type: 'text',
 })`
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   box-shadow: 1px 1px 1px #000;
-  border: 1px #000 solid;
+  border: 1px -2 1px 1px #000 solid;
   font-family: 'Pokemon';
   width: 300px;
   height: 40%;
   padding-left: 10px;
   padding-right: 10px;
   &:focus {
-    outline: none !important;
-    border: 2px solid #B3A125;
-    box-shadow: 1px 1px 1px #B3A125;
+    outline: none;
   }
 `;
+
+export const Button = styled.button.attrs({
+  type: 'submit',
+})`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 60px;
+`;
+
+export const SearchButton = () => (<Button><Search /></Button>);

@@ -1,7 +1,6 @@
 import React from 'react';
-import { ReactComponent as Search } from 'assets/search-black-18dp.svg';
 import {
-  Form, Header, LogoPokemon, SearchInput,
+  Form, Header, LogoPokemon, SearchInput, SearchButton,
 } from './Header.style';
 
 function HeaderContainer() {
@@ -10,9 +9,7 @@ function HeaderContainer() {
       <LogoPokemon>Pokédex</LogoPokemon>
       <Form>
         <SearchInput />
-        <button type="submit">
-          <Search />
-        </button>
+        <SearchButton />
       </Form>
     </Header>
   );

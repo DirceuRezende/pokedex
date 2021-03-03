@@ -1,11 +1,16 @@
-import React from 'react';
-import Header from 'components/Header';
+import React, { Suspense } from 'react';
 
+const Header = React.lazy(() => import('components/Header'));
+const Routes = React.lazy(() => import('routes'));
 function App() {
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <Suspense fallback="Carregando...">
+        <Header />
+        <Routes />
+      </Suspense>
+
+    </>
   );
 }
 
