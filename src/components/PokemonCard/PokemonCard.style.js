@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { Spinner } from 'shared';
 import styled from 'styled-components';
 
 export const Card = styled.div`
   align-items: center;
   border: 1px solid #aaa;
-  background-color: #589698;
+  background-color: #efefef;
   display: flex;
   flex-direction: column;
   flex: 1 1 400px;
@@ -13,29 +11,13 @@ export const Card = styled.div`
   margin: 10px;
   height: 400px;
   width: 400px;
+  box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
+  transition: all .3s ease;
+  cursor: pointer;
+  &:hover {
+    box-shadow:  0 0 0 #000;
+  }
 `;
-
-export const Image = styled.img`
-  height: 250px;
-  width: 250px;
-  display: ${({ loading }) => (loading ? 'none' : 'inline')};
-`;
-
-// eslint-disable-next-line react/prop-types
-export const ImageLoad = ({ url }) => {
-  const [loading, useLoading] = useState(true);
-  const handleOnLoad = () => { useLoading(false); };
-  return (
-    <div style={{
-      alignItems: 'center', width: '250px', height: '250px', display: 'flex', justifyContent: 'center', flexDirection: 'column',
-    }}
-    >
-      {loading && <Spinner />}
-      <Image loading={loading} src={url} onLoad={() => handleOnLoad()} />
-
-    </div>
-  );
-};
 
 export const Title = styled.h3`
   font-size: 20px;

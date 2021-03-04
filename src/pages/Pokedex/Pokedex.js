@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/no-array-index-key */
+import React, { useEffect } from 'react';
 import { PageTitle } from 'shared';
-import { getAllPokemons } from 'services/pokemon';
 import PokemonCard from 'components/PokemonCard';
+import { usePokemons, usePagination } from 'hooks';
 import { PokemonContainer, Wrapper } from './Pokedex.style';
 
 function Pokedex() {
-  const [pokemons, setPokemons] = useState([]);
+  const { pokemons, fetchPokemons } = usePokemons();
+  const { actualPage, setActualPage } = usePagination();
 
-  useEffect(async () => {
-    const pokemonsData = await getAllPokemons();
-    setPokemons(pokemonsData.results);
-  }, [getAllPokemons, setPokemons]);
-
+  useEffect(() => {
+    fetchPokemons(actualPage);
+  }, [actualPage]);
   return (
     <Wrapper>
       <PageTitle>Pokemons</PageTitle>
       <PokemonContainer>
-        {pokemons?.map((pokemon) => (
-          <PokemonCard key={pokemon.name} pokemon={pokemon} />
-        ))}
+        {pokemons?.map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon} />)}
       </PokemonContainer>
+      {Array(5).fill('').map((_, index) => <button type="button" key={2 * index} disabled={(actualPage === index + 1)} onClick={() => setActualPage(index + 1)}>{index}</button>)}
     </Wrapper>
   );
 }
