@@ -31,7 +31,7 @@ function PokemonCard({ pokemon }) {
           <Title>{pokemonInfo?.name}</Title>
           <CardFooter>
             {pokemonInfo?.types?.map((type) => (
-              <Type key={type.slot}>{type.type.name}</Type>
+              <Type key={type.slot} type={type.type.name}>{type.type.name}</Type>
             ))}
           </CardFooter>
         </>

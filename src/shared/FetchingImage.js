@@ -11,13 +11,12 @@ const Image = styled.img`
 `;
 
 const Container = styled.div`
-  align-items: 'center';
+  align-items: center;
   width: ${({ width }) => width}px;
   height: ${({ height }) => height}px;
-  display: 'flex';
-  justify-content: 'center';
-  flex-direction: 'column';
-  display: ${({ fetching }) => (fetching ? 'none' : 'inline')};
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 export const FetchingImage = ({ url, width, height }) => {

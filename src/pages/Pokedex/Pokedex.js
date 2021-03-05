@@ -2,15 +2,16 @@
 import React, { useEffect } from 'react';
 import { PageTitle } from 'shared';
 import PokemonCard from 'components/PokemonCard';
+import Pagination from 'components/Pagination';
 import { usePokemons, usePagination } from 'hooks';
 import { PokemonContainer, Wrapper } from './Pokedex.style';
 
 function Pokedex() {
-  const { pokemons, fetchPokemons } = usePokemons();
+  const { pokemons, fetchPokemons, pokemonCount } = usePokemons();
   const { actualPage, setActualPage } = usePagination();
 
   useEffect(() => {
-    fetchPokemons(actualPage);
+    fetchPokemons(actualPage - 1);
   }, [actualPage]);
   return (
     <Wrapper>
@@ -18,7 +19,7 @@ function Pokedex() {
       <PokemonContainer>
         {pokemons?.map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon} />)}
       </PokemonContainer>
-      {Array(5).fill('').map((_, index) => <button type="button" key={2 * index} disabled={(actualPage === index + 1)} onClick={() => setActualPage(index + 1)}>{index}</button>)}
+      <Pagination total={pokemonCount} currentPage={actualPage} setCurrentPage={setActualPage} />
     </Wrapper>
   );
 }
