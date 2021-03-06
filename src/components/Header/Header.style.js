@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Search } from 'assets/search-black-18dp.svg';
+import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
   align-items: center;
@@ -8,7 +9,7 @@ export const Header = styled.header`
   background-color: #CC0000;
   display: flex;
   height: 80px;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const Form = styled.form`
@@ -16,7 +17,9 @@ export const Form = styled.form`
   align-items: stretch;
 `;
 
-export const LogoPokemon = styled.h1`
+export const LogoPokemon = styled(Link).attrs({
+  to: { pathname: '/', search: '?page=1' },
+})`
   color: #FFDE00;
   margin-right: 2em;
   font-family: 'Pokemon';
@@ -48,6 +51,7 @@ export const Button = styled.button.attrs({
   type: 'submit',
 })`
   align-items: center;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   width: 60px;

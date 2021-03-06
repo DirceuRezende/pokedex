@@ -10,6 +10,7 @@ import {
 
 function PokemonCard({ pokemon }) {
   const history = useHistory();
+
   const id = pokemon.url.split('/').slice(0, -1).pop();
   const { pokemon: pokemonInfo, fetching } = usePokemon(id);
 
@@ -42,8 +43,7 @@ function PokemonCard({ pokemon }) {
 }
 
 PokemonCard.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  pokemon: t.object.isRequired,
+  pokemon: t.shape({ name: t.string.isRequired, url: t.string.isRequired }).isRequired,
 };
 
 export default PokemonCard;
