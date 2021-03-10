@@ -7,6 +7,7 @@ export const Wrapper = styled.main`
   padding: 15px;
   justify-content: flex-start;
   height: calc(100vh - 160px);
+  width: 100%;
 `;
 
 export const PokemonWrapper = styled.div`
@@ -14,6 +15,15 @@ export const PokemonWrapper = styled.div`
   display: flex;
   margin-top: 25px;
   width: 1024px;
+  @media (max-width: 1024px) {
+    width: 768px;
+  }
+  @media (max-width: 768px) {
+    width: 546px;
+  }
+  @media (max-width: 425px) {
+    width: 390px;
+  }
   flex-wrap: wrap;
   padding: 10px;
 `;
@@ -28,6 +38,9 @@ export const TypeSelect = styled.select`
   padding-left: 10px;
   padding-right: 10px;
   text-transform: capitalize;
+  @media (max-width: 425px) {
+    margin-top: 16px;
+  }
 `;
 
 export const HeaderWrapper = styled.div`
@@ -37,4 +50,13 @@ export const HeaderWrapper = styled.div`
   width: 1024px;
   flex-wrap: wrap;
   padding: 10px;
+  @media (max-width: 1024px) {
+    width: 768px;
+  }
+  @media (max-width: 768px) {
+    width: 546px;
+  }
+  @media (max-width: 425px) {
+    width: 370px;
+  }
 `;
