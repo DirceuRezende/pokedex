@@ -14,7 +14,7 @@ function usePokemon(id) {
       setPokemon(() => pokemonData.data);
       setFetching(false);
     }
-  }, [setPokemon]);
+  }, [id, setPokemon]);
 
   return { pokemon, fetching };
 }

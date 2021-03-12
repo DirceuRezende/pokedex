@@ -24,7 +24,6 @@ function PokemonCard({ pokemon }) {
       {!fetching && (
         <>
           <FetchingImage
-            image={Image}
             url={pokemonInfo?.sprites?.front_default}
             width={250}
             height={250}

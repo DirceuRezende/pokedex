@@ -6,7 +6,7 @@ export const Wrapper = styled.main`
   flex-direction: column;
   padding: 15px;
   justify-content: flex-start;
-  height: calc(100vh - 160px);
+  height: calc(100% - 160px);
   width: 100%;
 `;
 
