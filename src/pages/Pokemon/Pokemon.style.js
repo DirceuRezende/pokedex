@@ -8,13 +8,32 @@ export const Wrapper = styled.main`
   flex-direction: column;
   padding: 15px;
   justify-content: flex-start;
-  height: calc(100vh - 160px);
+  height: calc(100% - 160px);
   width: 100%;
 `;
 
 export const PokemonWrapper = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 25px;
+  width: 1024px;
+  @media (max-width: 1024px) {
+    width: 768px;
+  }
+  @media (max-width: 768px) {
+    width: 546px;
+  }
+  @media (max-width: 425px) {
+    width: 390px;
+  }
+  flex-wrap: wrap;
+  padding: 10px;
+`;
+
+export const MoveWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   margin-top: 25px;
   width: 1024px;
   @media (max-width: 1024px) {
@@ -133,4 +152,53 @@ export const FlipCardFront = styled(FlipCardFrontBack)`
 
 export const FlipCardBack = styled(FlipCardFrontBack)`
   transform: rotateY(180deg);
+`;
+
+export const Moves = styled.div`
+  width: 1024px;
+  @media (max-width: 1024px) {
+    width: 768px;
+  }
+  @media (max-width: 768px) {
+    width: 546px;
+  }
+  @media (max-width: 425px) {
+    width: 390px;
+  }
+`;
+
+export const MoveTitle = styled.p`
+  align-self: center;
+  font-family: 'Pokemon';
+  font-size: 24px;
+  margin-bottom: 24px;
+`;
+
+export const MovesContainer = styled.table`
+  font-family: 'Pokemon';
+`;
+
+export const MovesContainerHead = styled.thead`
+  color: #3762AC;
+`;
+
+export const MovesContainerBody = styled.tbody`
+
+`;
+
+export const MovesContainerRow = styled.tr`
+
+`;
+
+export const MovesContainerBodyHeadContent = styled.th`
+  border: 1px #3762AC solid;
+  padding: 12px;
+  margin-bottom: 12px;
+`;
+
+export const MovesContainerContent = styled.td`
+  text-align: center;
+  border: 1px #3762AC solid;
+  padding: 12px;
+  vertical-align: middle;
 `;
