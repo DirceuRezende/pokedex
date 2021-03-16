@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable no-use-before-define */
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
@@ -13,8 +14,8 @@ function usePagination() {
   function getCurrentPage() {
     const queryStringParams = qs.parse(location.search);
     const { page } = queryStringParams;
-
-    if (page !== currentPage && mounted.current && +page >= 1) {
+    debugger;
+    if (+page !== currentPage && mounted.current && +page > 1) {
       setCurrentPage(+page);
     }
   }
@@ -24,11 +25,7 @@ function usePagination() {
 
   useEffect(() => {
     const queryStringParams = qs.parse(location.search);
-    history.push({ search: qs.stringify({ ...queryStringParams, page: currentPage }) });
-  }, [currentPage]);
-
-  useEffect(() => {
-    const queryStringParams = qs.parse(location.search);
+    debugger;
     history.push({ search: qs.stringify({ ...queryStringParams, page: currentPage }) });
   }, [currentPage]);
 
